@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dockerDeployment-deployment
+  labels:
+    app: dockerDeployment
+spec:
+  selector:
+    matchLabels:
+      app: dockerDeployment
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: dockerDeployment
+    spec:
+      containers:
+        - name: dockerDeployment
+          image: ashishshukla03/docker
+          ports:
+            - containerPort: 8090
